@@ -1,0 +1,25 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+
+<h1>{{ object.titulo }}</h1>
+<p>Descrição: {{ object.descricao }}</p>
+<p>Categoria: {{ object.categoria }}</p>
+<p>Data de publicação: {{ object.data_publicacao|date }}</p>
+
+{% if object.variacoes %}
+<select>
+{% for variacao in object.variacao_set.all %} 
+    <option class="{% if variacao.disponivel %}disponivel{% endif %}" value={{ variacao.nome|lower }}> {{ variacao.nome|capfirst }} - R${{ variacao.preco }}</option>
+{% endfor %}
+</select>
+{% endif %}
+
+<img src="{{ object.get_img_url }}">
+
+{% if request.user.is_superuser %}
+<a href="{{object.get_delete_url}}" > Deletar </a>
+{% endif %}
+
+{% endblock content %}

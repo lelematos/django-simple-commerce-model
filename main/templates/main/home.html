@@ -1,0 +1,27 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block content %}
+
+{% comment %} {% for object in object_list %} {% endcomment %}
+{% for categoria, items in categorias_e_items %}
+  <h1>{{ categoria }}</h1>
+  {% for item in items %}
+  <h1><a href={{item.get_absolute_url}}> {{ item.titulo }} </a></h1>
+  <p>Descrição: {{ item.descricao }}</p>
+  <p>Categoria: {{ item.categoria }}</p>
+  <p>Data de publicação: {{ item.data_publicacao|date }}</p>
+  {% if item.variacoes %}
+  <p>Tamanho: {{ item.tamanhos }}
+  {% endif %}
+  <img src="{{ item.get_img_url }}">
+  {% if request.user.is_superuser %}
+  <a href="{{item.get_delete_url}}" > Deletar </a>
+  {% endif %}
+  {% endfor %}
+{% endfor %}
+
+
+{% comment %} {% endfor %} {% endcomment %}
+
+{% endblock content %}
