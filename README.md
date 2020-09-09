@@ -1,4 +1,5 @@
-## Comados de inicialização ##
+## Modelo de desenvolvimento Django Simple Commerce
+# Comados de inicialização #
 cd .. && env\scripts\activate && cd django_commerce_model 
 py manage.py runserver
 py manage.py makemigrations
