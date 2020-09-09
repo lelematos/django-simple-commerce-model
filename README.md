@@ -1,10 +1,12 @@
-## Modelo de desenvolvimento Django Simple Commerce
-# Comados de inicialização #
+## Modelo de desenvolvimento Django Simple Commerce ##
+## Comados de inicialização 
 cd .. && env\scripts\activate && cd django_commerce_model 
 py manage.py runserver
 py manage.py makemigrations
 py manage.py migrate
 py manage.py shell
+
+## Descrição geral
 
 Modelo próprio base para criação de sites com a funcionalidade de adição de produtos, listagem, e gerenciamento de textos, imagens e links das páginas do site.
 
